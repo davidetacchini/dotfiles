@@ -1,0 +1,11 @@
+automake
+docker
+gh
+git-chglog/git-chglog/git-chglog
+libgit2
+node
+pkg-config
+postgresql
+tmux
+vim
+wget
