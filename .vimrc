@@ -7,4 +7,3 @@ set number
 set hlsearch
 set ruler
 set backspace=indent,eol,start
-# colo nord
