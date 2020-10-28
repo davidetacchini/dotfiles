@@ -1,6 +1,7 @@
 automake
 docker
 gh
+git
 git-chglog/git-chglog/git-chglog
 libgit2
 node
