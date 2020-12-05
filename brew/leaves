@@ -1,4 +1,5 @@
 automake
+cmake
 docker
 gh
 git
