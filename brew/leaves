@@ -1,4 +1,5 @@
 automake
+c-ares
 cmake
 docker
 gh
@@ -7,9 +8,12 @@ git-chglog/git-chglog/git-chglog
 heroku/brew/heroku
 htop
 libgit2
+libmetalink
 node
+openldap
 pkg-config
 postgresql
+rtmpdump
 tmux
 vim
 wget
