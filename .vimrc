@@ -6,4 +6,5 @@ set ai
 set number
 set hlsearch
 set ruler
+set nohlsearch
 set backspace=indent,eol,start
