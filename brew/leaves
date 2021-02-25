@@ -4,7 +4,8 @@ cmake
 docker
 gh
 git
-git-chglog/git-chglog/git-chglog
+go
+go-md2man
 heroku/brew/heroku
 htop
 libgit2
