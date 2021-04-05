@@ -2,7 +2,6 @@ automake
 c-ares
 cmake
 docker
-gh
 git
 go
 go-md2man
