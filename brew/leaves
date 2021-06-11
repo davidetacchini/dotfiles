@@ -1,6 +1,5 @@
 automake
 cmake
-docker
 git
 go
 go-md2man
