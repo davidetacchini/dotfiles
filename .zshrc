@@ -11,6 +11,6 @@ autoload -Uz vcs_info
 precmd () { vcs_info }
 zstyle ':vcs_info:git:*' formats ' %F{red}(%b)%f'
 setopt PROMPT_SUBST
-PROMPT='%F{green}%n@%m%f %F{blue}%1~%f${vcs_info_msg_0_} %F{yellow}✗%f '
+PROMPT='%F{green}%n@%m%f %F{blue}%~%f${vcs_info_msg_0_} %F{yellow}✗%f '
 
 alias config="/usr/bin/git --git-dir=$HOME/.config.git/ --work-tree=$HOME"
