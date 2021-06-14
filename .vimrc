@@ -8,3 +8,4 @@ set hlsearch
 set ruler
 set nohlsearch
 set backspace=indent,eol,start
+set splitright
