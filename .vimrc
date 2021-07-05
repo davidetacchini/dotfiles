@@ -4,8 +4,7 @@ set shiftwidth=4
 set expandtab
 set ai
 set number
-set hlsearch
-set ruler
 set nohlsearch
+set ruler
 set backspace=indent,eol,start
 set splitright
