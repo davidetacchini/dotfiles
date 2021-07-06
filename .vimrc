@@ -8,3 +8,4 @@ set nohlsearch
 set ruler
 set backspace=indent,eol,start
 set splitright
+highligh Comment ctermfg=green
