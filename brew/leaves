@@ -1,4 +1,5 @@
 automake
+bash
 brotli
 cmake
 git
