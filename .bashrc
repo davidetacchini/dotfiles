@@ -1,5 +1,6 @@
 export PATH="/usr/local/opt/python@3.9/bin:$PATH"
 export PATH="/usr/local/sbin:$PATH"
+export PATH="/usr/local/opt/ruby/bin:$PATH"
 export CC=/usr/bin/clang
 export EDITOR="vim"
 export NVM_DIR="$HOME/.nvm"
