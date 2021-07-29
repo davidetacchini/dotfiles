@@ -2,6 +2,7 @@ automake
 bash
 brotli
 cmake
+ghc
 git
 go
 go-md2man
@@ -15,6 +16,7 @@ nvm
 openldap
 pkg-config
 postgresql
+python-tk@3.9
 rtmpdump
 tmux
 vim
