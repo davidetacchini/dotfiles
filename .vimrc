@@ -11,3 +11,4 @@ set splitright
 highligh Comment ctermfg=green
 autocmd FileType vue setlocal ts=2 sw=2
 autocmd FileType html setlocal ts=2 sw=2
+autocmd FileType yaml setlocal ts=2 sw=2
