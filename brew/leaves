@@ -6,6 +6,7 @@ ghc
 git
 go
 go-md2man
+guile
 heroku/brew/heroku
 htop
 jpeg
