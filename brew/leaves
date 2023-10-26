@@ -10,9 +10,11 @@ htop
 libgit2
 libmetalink
 nasm
+nmap
 nvm
 php
 pkg-config
+poetry
 postgresql@15
 python@3.10
 tmux
