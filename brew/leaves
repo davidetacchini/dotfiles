@@ -1,5 +1,6 @@
 automake
 bash
+berkeley-db
 c-ares
 cmake
 ghc
@@ -15,8 +16,9 @@ nvm
 php
 pkg-config
 poetry
-postgresql@15
+postgresql@16
 python@3.10
+python@3.11
 tmux
 vim
 wget
