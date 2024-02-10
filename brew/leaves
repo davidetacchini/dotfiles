@@ -1,6 +1,5 @@
 automake
 bash
-berkeley-db
 c-ares
 cmake
 ghc
