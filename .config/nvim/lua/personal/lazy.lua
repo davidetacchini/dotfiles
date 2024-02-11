@@ -16,12 +16,13 @@ local plugins = {
     { 'nvim-telescope/telescope.nvim', tag = '0.1.5', dependencies = { 'nvim-lua/plenary.nvim' } },
     { 'nvim-treesitter/nvim-treesitter', build = ":TSUpdate" },
     { 'VonHeikemen/lsp-zero.nvim', branch = 'v3.x' },
-    { 'williamboman/mason.nvim' }, -- lsp-zero plugins
-    { 'williamboman/mason-lspconfig.nvim' }, -- lsp-zero plugins
-    { 'neovim/nvim-lspconfig' }, -- lsp-zero plugin
-    { 'hrsh7th/cmp-nvim-lsp' }, -- lsp-zero plugin
-    { 'hrsh7th/nvim-cmp' }, -- lsp-zero plugin
-    { 'L3MON4D3/LuaSnip' }, -- lsp-zero plugin
+    -- lsp-zero plugins
+    { 'williamboman/mason.nvim' },
+    { 'williamboman/mason-lspconfig.nvim' },
+    { 'neovim/nvim-lspconfig' },
+    { 'hrsh7th/cmp-nvim-lsp' },
+    { 'hrsh7th/nvim-cmp' },
+    { 'L3MON4D3/LuaSnip' },
 }
 local opts = {}
 
