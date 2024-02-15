@@ -4,8 +4,6 @@ lsp_zero.on_attach(function(_, bufnr)
     lsp_zero.default_keymaps({buffer = bufnr})
 end)
 
-lsp_zero.set_sign_icons({ })
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = {
@@ -13,6 +11,7 @@ require('mason-lspconfig').setup({
         "tsserver",
         "html",
         "cssls",
+        "emmet_language_server",
     },
     handlers = {
         lsp_zero.default_setup,
@@ -24,20 +23,24 @@ require('mason-lspconfig').setup({
     },
 })
 
+require("lspconfig").emmet_language_server.setup({
+    filetypes = { "html", "css" },
+})
+
 local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
+    sources = {
+        {name = 'nvim_lsp'},
+        {name = 'nvim_lua'},
+    },
     formatting = lsp_zero.cmp_format(),
     mapping = cmp.mapping.preset.insert({
-        ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-        ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+        ['<C-k>'] = cmp.mapping.select_prev_item(cmp_select),
+        ['<C-j>'] = cmp.mapping.select_next_item(cmp_select),
         ['<CR>'] = cmp.mapping.confirm({ select = true }),
         ['<C-Space>'] = cmp.mapping.complete(),
     }),
-})
-
-vim.diagnostic.config({
-    virtual_text = false
 })
 
