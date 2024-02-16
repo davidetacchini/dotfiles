@@ -15,7 +15,6 @@ export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 export NVM_DIR="$HOME/.nvm"
     [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 
-alias config="/usr/bin/git --git-dir=$HOME/.config.git/ --work-tree=$HOME" # Adds config alias for dotfiles
 alias vi="nvim"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
