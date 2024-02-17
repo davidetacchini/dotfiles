@@ -1,0 +1,18 @@
+import = [
+    "~/.config/alacritty/themes/one_dark.toml"
+]
+
+[window]
+startup_mode = "Maximized"
+padding = { x = 5, y = 5 }
+
+[font]
+size = 13
+
+[keyboard]
+# Allows me to move word by word using Alt + Left/Right arrows
+bindings = [
+  { key = "Right", mods = "Alt", chars = "\u001BF" },
+  { key = "Left",  mods = "Alt", chars = "\u001BB" },
+  { key = "Return", mods = "Shift", action = "SpawnNewInstance" },
+]
