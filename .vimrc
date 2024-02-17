@@ -13,7 +13,8 @@ set updatetime=50
 
 vnoremap J :m '>+1<CR>gv=gv
 vnoremap K :m '<-2<CR>gv=gv
-nnoremap <C-d> <C-d>zz nnoremap <C-u> <C-u>zz
+nnoremap <C-d> <C-d>zz
+nnoremap <C-u> <C-u>zz
 nnoremap J mzJ`z
 
 highligh Comment ctermfg=green
