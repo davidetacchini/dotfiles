@@ -11,6 +11,6 @@ vim.keymap.set("n", "<C-u>", "<C-u>zz")
 -- Prevent the cursor to move at eol when appending bottom line to current line
 vim.keymap.set("n", "J", "mzJ`z")
 
--- Prevent the override selection to be placed in the 'paste buffer' (?)
+-- Keep a buffer of the yanked selection
 vim.keymap.set("x", "<leader>p", [["_dP]])
 
