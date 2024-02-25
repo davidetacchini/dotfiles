@@ -1,4 +1,3 @@
-require("core.set")
-require("core.remap")
+require("core.options")
+require("core.keymaps")
 require("core.lazy")
-
