@@ -15,6 +15,7 @@ return {
 				markdown = { "prettier" },
 				html = { "prettier" },
 				css = { "prettier" },
+				vue = { "prettier" },
 			},
 
 			format_on_save = {
