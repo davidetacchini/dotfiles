@@ -1,2 +1,2 @@
 #!/bin/bash
-brew bundle dump --force
+brew bundle dump --brews --casks --taps --mas --force
