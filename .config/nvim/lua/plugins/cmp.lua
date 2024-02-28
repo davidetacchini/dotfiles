@@ -5,9 +5,10 @@ return {
 		{ "hrsh7th/cmp-buffer" },
 		{ "hrsh7th/cmp-path" },
 		{
-			"L3MON4D3/LuaSnip",
+			"hrsh7th/cmp-vsnip",
 			dependencies = {
-				"saadparwaiz1/cmp_luasnip",
+				"hrsh7th/vim-vsnip",
+				"hrsh7th/vim-vsnip-integ",
 				"rafamadriz/friendly-snippets",
 			},
 		},
@@ -17,12 +18,10 @@ return {
 		local cmp = require("cmp")
 		local cmp_select = { behavior = cmp.SelectBehavior.Select }
 
-		require("luasnip.loaders.from_vscode").lazy_load()
-
 		cmp.setup({
 			snippet = {
 				expand = function(args)
-					require("luasnip").lsp_expand(args.body)
+					vim.fn["vsnip#anonymous"](args.body)
 				end,
 			},
 			mapping = cmp.mapping.preset.insert({
@@ -35,7 +34,7 @@ return {
 			}),
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" },
-				{ name = "luasnip" },
+				{ name = "vsnip" },
 				{ name = "buffer" },
 				{ name = "path" },
 			}),

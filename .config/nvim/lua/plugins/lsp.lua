@@ -10,6 +10,7 @@ return {
 		local mason_lspconfig = require("mason-lspconfig")
 		local mason_tool_installer = require("mason-tool-installer")
 		local lspconfig = require("lspconfig")
+		local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 		mason.setup({})
 
@@ -35,7 +36,9 @@ return {
 
 		mason_lspconfig.setup_handlers({
 			function(server_name) -- default handler (optional)
-				lspconfig[server_name].setup({})
+				lspconfig[server_name].setup({
+					capabilities = capabilities,
+				})
 			end,
 
 			["lua_ls"] = function()
@@ -51,12 +54,6 @@ return {
 							workspace = { vim.env.VIMRUNTIME },
 						},
 					},
-				})
-			end,
-
-			["emmet_language_server"] = function()
-				lspconfig.emmet_language_server.setup({
-					filetypes = { "html", "css" },
 				})
 			end,
 		})
