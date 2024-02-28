@@ -43,6 +43,7 @@ return {
 
 			["lua_ls"] = function()
 				lspconfig.lua_ls.setup({
+					capabilities = capabilities,
 					settings = {
 						Lua = {
 							runtime = {
