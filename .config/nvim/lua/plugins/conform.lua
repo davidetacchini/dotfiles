@@ -16,6 +16,7 @@ return {
 				html = { "prettier" },
 				css = { "prettier" },
 				vue = { "prettier" },
+				htmldjango = { "djlint" },
 			},
 
 			format_on_save = {
