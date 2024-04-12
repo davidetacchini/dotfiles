@@ -13,6 +13,20 @@ return {
 			vim.keymap.set("n", "<leader>ps", builtin.live_grep, {})
 
 			require("telescope").setup({
+				defaults = {
+					preview = {
+						-- Makes the preview faster
+						timeout_hook = function(filepath, bufnr, opts)
+							local cmd = { "echo", "timeout" }
+							require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
+						end,
+						filesize_hook = function(filepath, bufnr, opts)
+							local cmd = { "echo", "filesize" }
+							require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
+						end,
+						treesitter = false,
+					},
+				},
 				extensions = {
 					["ui-select"] = {
 						require("telescope.themes").get_dropdown({}),
