@@ -18,11 +18,6 @@ return {
 				vue = { "prettier" },
 				htmldjango = { "djlint" },
 			},
-
-			-- format_on_save = {
-			-- 	timeout_ms = 500,
-			-- 	lsp_fallback = true,
-			-- },
 		})
 
 		vim.keymap.set({ "n", "v" }, "<leader>fm", function()
