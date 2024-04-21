@@ -17,4 +17,5 @@ vim.opt.splitright = true
 vim.opt.smartindent = true
 
 vim.opt.termguicolors = true
+vim.opt.background = "dark"
 vim.opt.updatetime = 100

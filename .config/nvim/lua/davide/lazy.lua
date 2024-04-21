@@ -11,4 +11,15 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-require("lazy").setup("plugins")
+local plugins = {
+	{ import = "davide.plugins" },
+	{ import = "davide.plugins.lsp" },
+}
+
+local opts = {
+	change_detection = {
+		notify = false,
+	},
+}
+
+require("lazy").setup(plugins, opts)

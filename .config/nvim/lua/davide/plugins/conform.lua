@@ -10,6 +10,8 @@ return {
 				lua = { "stylua" },
 				javascript = { "prettier" },
 				typesript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typesriptreact = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
@@ -22,9 +24,9 @@ return {
 
 		vim.keymap.set({ "n", "v" }, "<leader>fm", function()
 			conform.format({
-				timeout_ms = 500,
+				timeout_ms = 1000,
 				lsp_fallback = true,
 			})
-		end)
+		end, { desc = "Format file or range (in visual mode)" })
 	end,
 }
