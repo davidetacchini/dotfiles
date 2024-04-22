@@ -19,3 +19,11 @@ vim.opt.smartindent = true
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
 vim.opt.updatetime = 100
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "html,css,javascript,typescript,javascriptreact,typescriptreact",
+	callback = function()
+		vim.opt_local.shiftwidth = 2
+		vim.opt_local.tabstop = 2
+	end,
+})
