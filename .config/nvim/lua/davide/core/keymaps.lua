@@ -18,4 +18,4 @@ vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Keep a buffer of the yanked
 vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vetically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>v", { desc = "Split window horinzontally" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Restore splits to initial size" })
-vim.keymap.set("n", "<leader>sx", "<cmd>Close<CR>", { desc = "Close current split" })
+vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
