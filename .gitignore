@@ -1,3 +1,6 @@
-.stow-local-ignore
 .DS_Store
+.stow-local-ignore
+.config/tmux/tpm
+.config/tmux/plugins
+
 brew/Brewfile.lock.json
