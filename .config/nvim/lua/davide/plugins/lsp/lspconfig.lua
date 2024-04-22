@@ -54,6 +54,15 @@ return {
 			signs = false,
 		})
 
+		-- Settings borders for both hover and signature_help
+		vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+			border = "rounded",
+		})
+
+		vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
+			border = "rounded",
+		})
+
 		mason_lspconfig.setup_handlers({
 			function(server_name) -- default handler (optional)
 				lspconfig[server_name].setup({
