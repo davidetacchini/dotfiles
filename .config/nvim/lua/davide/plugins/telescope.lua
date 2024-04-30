@@ -5,7 +5,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-ui-select.nvim",
-        "nvim-tree/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 	},
 	config = function()
 		local telescope = require("telescope")
@@ -13,18 +13,18 @@ return {
 		telescope.setup({
 			defaults = {
 				path_display = { "smart" },
-				-- preview = {
-				-- 	-- Makes the preview faster
-				-- 	timeout_hook = function(filepath, bufnr, opts)
-				-- 		local cmd = { "echo", "timeout" }
-				-- 		require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
-				-- 	end,
-				-- 	filesize_hook = function(filepath, bufnr, opts)
-				-- 		local cmd = { "echo", "filesize" }
-				-- 		require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
-				-- 	end,
-				-- 	treesitter = false,
-				-- },
+				preview = {
+					-- Makes the preview faster
+					timeout_hook = function(filepath, bufnr, opts)
+						local cmd = { "echo", "timeout" }
+						require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
+					end,
+					filesize_hook = function(filepath, bufnr, opts)
+						local cmd = { "echo", "filesize" }
+						require("telescope.previewers.utils").job_maker(cmd, bufnr, opts)
+					end,
+					treesitter = false,
+				},
 			},
 			extensions = {
 				["ui-select"] = {
