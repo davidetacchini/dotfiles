@@ -25,6 +25,7 @@ return {
 				"tsx",
 				"lua",
 				"json",
+                "sql",
 				"vimdoc",
 			},
 		})
