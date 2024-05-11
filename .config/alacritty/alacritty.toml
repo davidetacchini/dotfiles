@@ -7,7 +7,7 @@ startup_mode = "Maximized"
 padding = { x = 5, y = 5 }
 
 [font]
-size = 14
+size = 16
 normal = { family = "RobotoMono Nerd Font", style = "Regular" }
 
 [keyboard]
