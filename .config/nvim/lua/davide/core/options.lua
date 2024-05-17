@@ -21,7 +21,7 @@ vim.opt.background = "dark"
 vim.opt.updatetime = 100
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "html,css,scss,javascript,typescript,javascriptreact,typescriptreact",
+	pattern = "html,css,scss,javascript,typescript,javascriptreact,typescriptreact,htmldjango",
 	callback = function()
         vim.opt_local.softtabstop = 2
 		vim.opt_local.tabstop = 2
