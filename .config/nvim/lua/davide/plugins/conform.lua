@@ -11,7 +11,7 @@ return {
 				javascript = { "prettier" },
 				typesript = { "prettier" },
 				javascriptreact = { "prettier" },
-				typesriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
 				json = { "prettier" },
 				yaml = { "prettier" },
 				markdown = { "prettier" },
