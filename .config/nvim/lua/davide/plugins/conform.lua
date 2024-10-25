@@ -9,7 +9,7 @@ return {
 				python = { "isort", "black" },
 				lua = { "stylua" },
 				javascript = { "prettier" },
-				typesript = { "prettier" },
+				typescript = { "prettier" },
 				javascriptreact = { "prettier" },
 				typescriptreact = { "prettier" },
 				json = { "prettier" },
