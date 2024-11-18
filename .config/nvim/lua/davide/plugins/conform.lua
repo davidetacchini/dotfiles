@@ -19,6 +19,7 @@ return {
 				css = { "prettier" },
 				vue = { "prettier" },
 				htmldjango = { "djlint" },
+				bash = { "shfmt" },
 			},
 		})
 

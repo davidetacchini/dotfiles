@@ -15,8 +15,13 @@ export PATH="/opt/homebrew/opt/sbin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
 
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # Loads nvm
-
 alias vi="nvim"
+alias ae="source .venv/bin/activate"
+alias pipcs="pip-compile && pip-sync"
+alias djrun="python manage.py runserver"
+alias ai="source ~/aider/venv/bin/activate"
 
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" # Loads nvm
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
