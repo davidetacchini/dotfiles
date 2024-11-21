@@ -7,6 +7,7 @@ export CC=/usr/bin/clang
 export LANG="en_US.UTF-8"
 export TERMINFO_DIRS=$TERMINFO_DIRS:$HOME/.local/share/terminfo
 export NVM_DIR="$HOME/.nvm"
+export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_BUNDLE_FILE="$HOME/brew/Brewfile"
 
 export PATH="/opt/homebrew/opt/python@3.11/bin:$PATH"
