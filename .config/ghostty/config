@@ -1,0 +1,13 @@
+theme = OneHalfDark
+
+title = " "
+
+window-height = 10000
+window-width  = 10000
+
+font-family = "RobotoMono Nerd Font"
+font-size = 16
+font-thicken = true
+
+confirm-close-surface = false
+cursor-style-blink = false
