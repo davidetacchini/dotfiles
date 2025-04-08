@@ -15,6 +15,7 @@ export PATH="/opt/homebrew/opt/python@3.10/bin:$PATH"
 export PATH="/opt/homebrew/opt/sbin:$PATH"
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@16/bin:$PATH"
+export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
 alias vi="nvim"
 alias ae="source .venv/bin/activate"
