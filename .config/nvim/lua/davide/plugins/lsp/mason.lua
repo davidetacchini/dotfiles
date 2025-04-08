@@ -22,19 +22,24 @@ return {
     mason_lspconfig.setup({
       ensure_installed = {
         "lua_ls",
-        "pyright",
         "ts_ls",
         "html",
         "cssls",
         "emmet_language_server",
+        "bashls",
+        "ruff",
+        "volar",
+        "rust_analyzer",
+        "tailwindcss",
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "isort",
-        "black",
+        "pyright",
+        "ruff",
         "stylua",
+        "mypy",
         "prettier",
       },
     })
