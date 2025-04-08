@@ -70,6 +70,24 @@ return {
         })
       end,
 
+      ["pyright"] = function()
+        lspconfig.pyright.setup({
+          settings = {
+            pyright = {
+              -- Using Ruff's import organizer
+              disableOrganizeImports = true,
+            },
+            python = {
+              analysis = {
+                typeCheckingMode = "off", -- Turn off type checking (using mypy instead)
+                diagnosticMode = "openFilesOnly", -- Only analyze open files
+                useLibraryCodeForTypes = true, -- Still use library types for completion
+              },
+            },
+          },
+        })
+      end,
+
       ["lua_ls"] = function()
         lspconfig.lua_ls.setup({
           capabilities = capabilities,
@@ -82,6 +100,19 @@ return {
                 globals = { "vim" },
               },
               workspace = { vim.env.VIMRUNTIME },
+            },
+          },
+        })
+      end,
+
+      ["tailwindcss"] = function()
+        lspconfig.tailwindcss.setup({
+          filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue" },
+          settings = {
+            tailwindCSS = {
+              experimental = {
+                classRegex = { "tw`([^`]*)`", 'tw="([^"]*)"', "tw\\.\\w+`([^`]*)`" },
+              },
             },
           },
         })
