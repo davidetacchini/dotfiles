@@ -13,7 +13,7 @@ return {
 
     telescope.setup({
       defaults = {
-        path_display = { "smart" },
+        path_display = { "truncate" },
         preview = {
           -- Makes the preview faster
           timeout_hook = function(filepath, bufnr, opts)
