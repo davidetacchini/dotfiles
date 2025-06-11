@@ -7,7 +7,6 @@ return {
   },
   config = function()
     local lspconfig = require("lspconfig")
-    local mason_lspconfig = require("mason-lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -63,60 +62,54 @@ return {
       border = "rounded",
     })
 
-    mason_lspconfig.setup_handlers({
-      function(server_name) -- default handler (optional)
-        lspconfig[server_name].setup({
-          capabilities = capabilities,
-        })
-      end,
-
-      ["pyright"] = function()
-        lspconfig.pyright.setup({
-          settings = {
-            pyright = {
-              -- Using Ruff's import organizer
-              disableOrganizeImports = true,
-            },
-            python = {
-              analysis = {
-                typeCheckingMode = "off", -- Turn off type checking (using mypy instead)
-                diagnosticMode = "openFilesOnly", -- Only analyze open files
-                useLibraryCodeForTypes = true, -- Still use library types for completion
-              },
-            },
+    lspconfig.pyright.setup({
+      capabilities = capabilities,
+      settings = {
+        pyright = {
+          -- Using Ruff's import organizer
+          disableOrganizeImports = true,
+        },
+        python = {
+          analysis = {
+            typeCheckingMode = "off", -- Turn off type checking (using mypy instead)
+            diagnosticMode = "openFilesOnly", -- Only analyze open files
+            useLibraryCodeForTypes = true, -- Still use library types for completion
           },
-        })
-      end,
+        },
+      },
+    })
 
-      ["lua_ls"] = function()
-        lspconfig.lua_ls.setup({
-          capabilities = capabilities,
-          settings = {
-            Lua = {
-              runtime = {
-                version = "LuaJIT",
-              },
-              diagnostics = {
-                globals = { "vim" },
-              },
-              workspace = { vim.env.VIMRUNTIME },
-            },
+    lspconfig.lua_ls.setup({
+      capabilities = capabilities,
+      settings = {
+        Lua = {
+          runtime = {
+            version = "LuaJIT",
           },
-        })
-      end,
+          diagnostics = {
+            globals = { "vim" },
+          },
+          workspace = {
+            library = vim.api.nvim_get_runtime_file("", true),
+            checkThirdParty = false,
+          },
+          telemetry = {
+            enable = false,
+          },
+        },
+      },
+    })
 
-      ["tailwindcss"] = function()
-        lspconfig.tailwindcss.setup({
-          filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue" },
-          settings = {
-            tailwindCSS = {
-              experimental = {
-                classRegex = { "tw`([^`]*)`", 'tw="([^"]*)"', "tw\\.\\w+`([^`]*)`" },
-              },
-            },
+    lspconfig.tailwindcss.setup({
+      capabilities = capabilities,
+      filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue" },
+      settings = {
+        tailwindCSS = {
+          experimental = {
+            classRegex = { "tw`([^`]*)`", 'tw="([^"]*)"', "tw\\.\\w+`([^`]*)`" },
           },
-        })
-      end,
+        },
+      },
     })
   end,
 }
