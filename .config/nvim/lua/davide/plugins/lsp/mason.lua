@@ -28,7 +28,6 @@ return {
         "emmet_language_server",
         "bashls",
         "ruff",
-        "volar",
         "rust_analyzer",
         "tailwindcss",
       },
