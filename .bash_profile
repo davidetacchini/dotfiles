@@ -28,3 +28,4 @@ alias lg="lazygit"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 export ANTHROPIC_API_KEY=$(cat ~/.anthropic_api_key)
+export GEMINI_API_KEY=$(cat ~/.gemini_api_key)
