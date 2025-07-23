@@ -20,6 +20,30 @@ local opts = {
   change_detection = {
     notify = false,
   },
+  performance = {
+    cache = {
+      enabled = true,
+    },
+    reset_packpath = true, -- Reset the package path to improve startup time
+    rtp = {
+      reset = true, -- Reset the runtime path to improve startup time
+      disabled_plugins = {
+        "gzip",
+        "matchit",
+        "matchparen",
+        "netrwPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
+      },
+    },
+  },
+  profiling = {
+    -- Uncomment the following line to enable profiling
+    -- loader = true,
+    -- require = true,
+  },
 }
 
 require("lazy").setup(plugins, opts)

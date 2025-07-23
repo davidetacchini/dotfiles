@@ -1,6 +1,7 @@
 return {
   "navarasu/onedark.nvim",
   priority = 1000,
+  lazy = false, -- Load immediately since it's the colorscheme
   config = function()
     require("onedark").setup({
       transparent = true,

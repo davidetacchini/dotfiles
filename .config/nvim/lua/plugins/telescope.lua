@@ -1,5 +1,12 @@
 return {
   "nvim-telescope/telescope.nvim",
+  cmd = { "Telescope" },
+  keys = {
+    { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
+    { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Fuzzy search through git files" },
+    { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Search for a string in cwd" },
+    { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Search string under cursor" },
+  },
   dependencies = {
     "nvim-lua/plenary.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
@@ -8,7 +15,6 @@ return {
   },
   config = function()
     local telescope = require("telescope")
-    local last_search = ""
 
     telescope.setup({
       defaults = {
@@ -35,33 +41,5 @@ return {
 
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
-
-    local builtin = require("telescope.builtin")
-    vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-    vim.keymap.set("n", "<leader>fg", builtin.git_files, { desc = "Fuzzy search through git files" })
-    vim.keymap.set("n", "<leader>fs", builtin.live_grep, { desc = "Search for a string in cwd" })
-
-    -- Modify the live_grep mapping to use the stored search
-    vim.keymap.set("n", "<leader>fs", function()
-      builtin.live_grep({ default_text = last_search })
-    end, { desc = "Search for a string in cwd" })
-
-    -- Add an autocmd to save the search when leaving telescope
-    vim.api.nvim_create_autocmd("User", {
-      pattern = "TelescopeKeymap",
-      callback = function()
-        local prompt = require("telescope.actions.state").get_current_line()
-        if prompt ~= "" then
-          last_search = prompt
-        end
-      end,
-    })
-
-    vim.keymap.set(
-      "n",
-      "<leader>fc",
-      builtin.grep_string,
-      { desc = "Searches for a string under cursor or selection in cwd" }
-    )
   end,
 }
