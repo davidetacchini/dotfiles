@@ -23,6 +23,7 @@ alias pipcs="pip-compile && pip-sync"
 alias djrun="python manage.py runserver"
 alias ai="source ~/aider/venv/bin/activate"
 alias lg="lazygit"
+alias claude="~/.claude/local/claude"
 
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh" # Loads nvm
 eval "$(/opt/homebrew/bin/brew shellenv)"
