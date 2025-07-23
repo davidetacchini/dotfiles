@@ -1,20 +1,28 @@
-local function is_django_project(cwd)
-  local indicators = {
-    "**/manage.py",
-    "**/settings.py",
-    "**/urls.py",
-    "**/wsgi.py",
-    "**/asgi.py",
-  }
+-- Cache for Django project detection (per working directory)
+local django_cache = {}
 
-  local found = 0
-  for _, pattern in ipairs(indicators) do
-    if #vim.fn.globpath(cwd, pattern, false, true) > 0 then
-      found = found + 1
-    end
+local function is_django_project(cwd)
+  -- Return cached result if available
+  if django_cache[cwd] ~= nil then
+    return django_cache[cwd]
   end
 
-  return found >= 3
+  -- Quick check: manage.py in project root (most common case)
+  if vim.fn.filereadable(cwd .. "/manage.py") == 1 then
+    django_cache[cwd] = true
+    return true
+  end
+
+  -- Fallback: check parent directories (walk up tree)
+  local parent = vim.fn.fnamemodify(cwd, ":h")
+  if parent ~= cwd and vim.fn.filereadable(parent .. "/manage.py") == 1 then
+    django_cache[cwd] = true
+    return true
+  end
+
+  -- Cache negative result to avoid repeated checks
+  django_cache[cwd] = false
+  return false
 end
 
 -- set different indentation for specified file types
