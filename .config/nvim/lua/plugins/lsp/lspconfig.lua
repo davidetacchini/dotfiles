@@ -3,7 +3,15 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   dependencies = {
     "hrsh7th/cmp-nvim-lsp",
-    { "folke/neodev.nvim", opts = {} },
+    {
+      "folke/lazydev.nvim",
+      ft = "lua",
+      opts = {
+        library = {
+          { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+        },
+      },
+    },
   },
   config = function()
     local lspconfig = require("lspconfig")
@@ -83,19 +91,6 @@ return {
       capabilities = capabilities,
       settings = {
         Lua = {
-          runtime = {
-            version = "LuaJIT",
-          },
-          diagnostics = {
-            globals = { "vim" },
-          },
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              vim.env.VIMRUNTIME,
-              "${3rd}/luv/library",
-            },
-          },
           telemetry = {
             enable = false,
           },
