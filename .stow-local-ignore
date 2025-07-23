@@ -1,0 +1,13 @@
+# System-generated .config directories to ignore
+.config/htop
+.config/configstore
+.config/git
+
+.claude
+
+.DS_Store
+.gitignore
+.stow-local-ignore
+
+README.md
+CLAUDE.md

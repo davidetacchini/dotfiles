@@ -1,5 +1,4 @@
 .DS_Store
-.stow-local-ignore
 .config/tmux/tpm
 .config/tmux/plugins
 .claude
