@@ -1,7 +1,11 @@
-# System-generated .config directories to ignore
-.config/htop
-.config/configstore
-.config/git
+# Whitelist approach: ignore all .config directories by default
+.config
+
+# The following directories will be explicitly allowed in .gitignore:
+# - .config/alacritty
+# - .config/ghostty  
+# - .config/nvim
+# - .config/tmux
 
 .claude
 
