@@ -19,3 +19,8 @@ vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vetically" })
 vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horinzontally" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Restore splits to initial size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
+
+-- Buffer management
+vim.keymap.set("n", "<leader>bn", "<cmd>bnext<CR>", { desc = "Go to next buffer" })
+vim.keymap.set("n", "<leader>bp", "<cmd>bprevious<CR>", { desc = "Go to previous buffer" })
+vim.keymap.set("n", "<leader>bd", "<cmd>bdelete<CR>", { desc = "Delete current buffer" })
