@@ -1,2 +1,2 @@
-require("davide.core")
-require("davide.lazy")
+require("core")
+require("plugins-setup")
