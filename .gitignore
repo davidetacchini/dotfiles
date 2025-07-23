@@ -2,5 +2,15 @@
 .stow-local-ignore
 .config/tmux/tpm
 .config/tmux/plugins
+.claude
+
+# Neovim plugin lock file (managed by Lazy.nvim)
+lazy-lock.json
+
+# Unwanted system-generated .config directories  
+.config/htop/
+.config/configstore/
+.config/git/
 
 brew/Brewfile.lock.json
+CLAUDE.md
