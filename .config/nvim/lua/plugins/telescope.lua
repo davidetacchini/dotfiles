@@ -6,6 +6,8 @@ return {
     { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Fuzzy search through git files" },
     { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Search for a string in cwd" },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Search string under cursor" },
+    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume last telescope picker" },
+    { "<leader>fp", "<cmd>Telescope pickers<cr>", desc = "Show all cached telescope pickers" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -19,6 +21,7 @@ return {
     telescope.setup({
       defaults = {
         path_display = { "truncate" },
+        cache_picker = { num_pickers = 10 },
         preview = {
           -- Makes the preview faster
           timeout_hook = function(filepath, bufnr, opts)
