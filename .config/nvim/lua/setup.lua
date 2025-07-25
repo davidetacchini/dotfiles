@@ -29,7 +29,6 @@ local opts = {
       reset = true, -- Reset the runtime path to improve startup time
       disabled_plugins = {
         "gzip",
-        "matchit",
         "matchparen",
         "netrwPlugin",
         "tarPlugin",
