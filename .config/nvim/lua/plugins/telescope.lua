@@ -8,6 +8,8 @@ return {
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Search string under cursor" },
     { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume last telescope picker" },
     { "<leader>fp", "<cmd>Telescope pickers<cr>", desc = "Show all cached telescope pickers" },
+    { "<leader>xx", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics (Telescope)" },
+    { "<leader>xX", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Buffer Diagnostics (Telescope)" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",
@@ -17,11 +19,24 @@ return {
   },
   config = function()
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
+    local open_with_trouble = require("trouble.sources.telescope").open
+    local add_to_trouble = require("trouble.sources.telescope").add
 
     telescope.setup({
       defaults = {
         path_display = { "truncate" },
         cache_picker = { num_pickers = 10 },
+        mappings = {
+          i = {
+            ["<c-t>"] = open_with_trouble,
+            ["<c-a>"] = add_to_trouble,
+          },
+          n = {
+            ["<c-t>"] = open_with_trouble,
+            ["<c-a>"] = add_to_trouble,
+          },
+        },
         preview = {
           -- Makes the preview faster
           timeout_hook = function(filepath, bufnr, opts)
