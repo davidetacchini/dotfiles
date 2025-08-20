@@ -1,9 +1,11 @@
-theme = OneHalfDark
+theme = catppuccin-macchiato
 
 title = " "
 
 window-height = 10000
 window-width  = 10000
+
+window-padding-x = 5
 
 font-family = "RobotoMono Nerd Font"
 font-size = 16
@@ -11,3 +13,10 @@ font-thicken = true
 
 confirm-close-surface = false
 cursor-style-blink = false
+cursor-color = #848b98
+
+background-opacity = 0.90
+background-blur = true
+keybind = shift+enter=text:\n
+
+clipboard-paste-protection = false
