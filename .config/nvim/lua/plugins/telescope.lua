@@ -4,9 +4,46 @@ return {
   keys = {
     { "<C-p>", "<cmd>Telescope find_files<cr>", desc = "Find files" },
     { "<leader>fg", "<cmd>Telescope git_files<cr>", desc = "Fuzzy search through git files" },
-    { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Search for a string in cwd" },
+    {
+      "<leader>fs",
+      function()
+        local last_query = vim.g.last_live_grep_query or ""
+        require("telescope.builtin").live_grep({
+          default_text = last_query,
+          attach_mappings = function(prompt_bufnr, map)
+            local actions = require("telescope.actions")
+            local action_state = require("telescope.actions.state")
+
+            -- Save query when selecting an item
+            map("i", "<CR>", function(bufnr)
+              local picker = action_state.get_current_picker(bufnr)
+              if picker then
+                local query = picker:_get_prompt()
+                if query and query ~= "" then
+                  vim.g.last_live_grep_query = query
+                end
+              end
+              actions.select_default(bufnr)
+            end)
+
+            map("n", "<CR>", function(bufnr)
+              local picker = action_state.get_current_picker(bufnr)
+              if picker then
+                local query = picker:_get_prompt()
+                if query and query ~= "" then
+                  vim.g.last_live_grep_query = query
+                end
+              end
+              actions.select_default(bufnr)
+            end)
+
+            return true
+          end,
+        })
+      end,
+      desc = "Search for a string in cwd",
+    },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Search string under cursor" },
-    { "<leader>fr", "<cmd>Telescope resume<cr>", desc = "Resume last telescope picker" },
     { "<leader>fp", "<cmd>Telescope pickers<cr>", desc = "Show all cached telescope pickers" },
     { "<leader>xx", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics (Telescope)" },
     { "<leader>xX", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Buffer Diagnostics (Telescope)" },
