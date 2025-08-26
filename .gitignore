@@ -9,3 +9,6 @@ CLAUDE.md
 lazy-lock.json
 
 brew/Brewfile.lock.json
+
+tmux/.config/tmux/tpm/
+tmux/.config/tmux/plugins/
