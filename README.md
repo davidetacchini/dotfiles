@@ -31,8 +31,9 @@ Want to ignore some dirs/files? Just create a `.stow-local-ignore` inside the do
 
 ```sh
 cd dotfiles
-stow .
+stow nvim tmux ghostty alacritty brew .bashrc .bash_profile .vimrc
 ```
 
 ### Resources
+
 https://www.gnu.org/software/stow/
