@@ -1,3 +1,4 @@
+# Default stow ignores: https://www.gnu.org/software/stow/manual/html_node/Types-And-Syntax-Of-Ignore-Lists.html
 RCS
 .+,v
 
@@ -20,6 +21,7 @@ _darcs
 ^/LICENSE.*
 ^/COPYING
 
+# Custom ignores
 .claude
 .mcp.json
 .serena
