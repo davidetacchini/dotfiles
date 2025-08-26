@@ -1,4 +1,4 @@
-## Configuration
+## Dotfiles
 
 ### Steps
 
@@ -22,15 +22,15 @@ sudo apt install git stow
 This must be cloned in the $HOME directory
 
 ```sh
-git clone git@github.com:davidetacchini/configuration.git
+git clone git@github.com:davidetacchini/dotfiles.git
 ```
 
 #### 3. STOW!
 
-Want to ignore some dirs/files? Just create a `.stow-local-ignore` inside the configuration directory and enter all the files you want stow to ignore. Then:
+Want to ignore some dirs/files? Just create a `.stow-local-ignore` inside the dotfiles directory and enter all the files you want stow to ignore. Then:
 
 ```sh
-cd configuration
+cd dotfiles
 stow .
 ```
 
