@@ -1,16 +1,30 @@
-# Whitelist approach: ignore all .config directories by default
-.config
+RCS
+.+,v
 
-# The following directories will be explicitly allowed in .gitignore:
-# - .config/alacritty
-# - .config/ghostty  
-# - .config/nvim
-# - .config/tmux
+CVS
+\.\#.+       # CVS conflict files / emacs lock files
+\.cvsignore
+
+\.svn
+_darcs
+\.hg
+
+\.git
+\.gitignore
+\.gitmodules
+
+.+~          # emacs backup files
+\#.*\#       # emacs autosave files
+
+^/README.*
+^/LICENSE.*
+^/COPYING
 
 .claude
+.mcp.json
+.serena
 
 .DS_Store
-.gitignore
 .stow-local-ignore
 
 README.md

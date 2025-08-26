@@ -2,18 +2,10 @@
 .config/tmux/tpm
 .config/tmux/plugins
 .claude
+.serena
 
 # Neovim plugin lock file (managed by Lazy.nvim)
 lazy-lock.json
-
-# Whitelist approach: ignore all .config directories by default
-.config/
-
-# Then explicitly allow the ones we want to track
-!.config/alacritty/
-!.config/ghostty/
-!.config/nvim/
-!.config/tmux/
 
 brew/Brewfile.lock.json
 CLAUDE.md
