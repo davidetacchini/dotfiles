@@ -45,4 +45,8 @@ alias djmk="python manage.py makemigrations && echo '--- Migrations made ---' &&
 alias ai="source ~/aider/venv/bin/activate"
 alias lg="lazygit"
 alias lk="lazydocker"
-alias claude="~/.claude/local/claude"
+
+# Prevents Claude's auto-updater from running.
+# Using an alias instead of exporting globally to avoid breaking other tools
+# that might rely on DISABLED_AUTOUPDATER.
+alias claude="DISABLED_AUTOUPDATER=1 claude"
