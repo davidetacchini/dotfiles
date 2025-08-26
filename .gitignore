@@ -1,12 +1,11 @@
 .DS_Store
-.config/tmux/tpm
-.config/tmux/plugins
+
 .claude
 .serena
 .mcp.json
+CLAUDE.md
 
 # Neovim plugin lock file (managed by Lazy.nvim)
 lazy-lock.json
 
 brew/Brewfile.lock.json
-CLAUDE.md
