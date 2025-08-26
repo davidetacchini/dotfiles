@@ -3,6 +3,7 @@
 .config/tmux/plugins
 .claude
 .serena
+.mcp.json
 
 # Neovim plugin lock file (managed by Lazy.nvim)
 lazy-lock.json
