@@ -13,16 +13,19 @@ return {
   config = function()
     local cmp = require("cmp")
     local cmp_select = { behavior = cmp.SelectBehavior.Select }
-    local lspkind = require("lspkind")
 
     cmp.setup({
       window = {
-        completion = cmp.config.window.bordered({
-          winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
-        }),
-        documentation = cmp.config.window.bordered({
-          winhighlight = "Normal:Normal,FloatBorder:BorderBG,CursorLine:PmenuSel,Search:None",
-        }),
+        completion = {
+          border = "rounded",
+          winhighlight = "Normal:MyHighlight",
+          winblend = 0,
+        },
+        documentation = {
+          border = "rounded",
+          winhighlight = "Normal:MyHighlight",
+          winblend = 0,
+        },
       },
       snippet = {
         expand = function(args)

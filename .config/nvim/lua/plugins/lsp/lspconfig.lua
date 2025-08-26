@@ -23,7 +23,9 @@ return {
         local opts = { buffer = ev.buf, silent = true }
 
         opts.desc = "Show documentation for what is under the cursor"
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
+        vim.keymap.set("n", "K", function()
+          vim.lsp.buf.hover({ border = "rounded" })
+        end, opts)
 
         opts.desc = "Go to declaration"
         vim.keymap.set("n", "<leader>gD", vim.lsp.buf.declaration, opts)
@@ -41,16 +43,22 @@ return {
         vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
         opts.desc = "Show signature help"
-        vim.keymap.set("i", "<C-h>", vim.lsp.buf.signature_help, opts)
+        vim.keymap.set("i", "<C-h>", function()
+          vim.lsp.buf.signature_help({ border = "rounded" })
+        end, opts)
 
         opts.desc = "See available code actions"
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
         opts.desc = "Go to next diagnostic"
-        vim.keymap.set("n", "[d", vim.diagnostic.goto_next, opts)
+        vim.keymap.set("n", "[d", function()
+          vim.diagnostic.jump({ count = 1, float = true })
+        end, opts)
 
         opts.desc = "Go to previous diagnostic"
-        vim.keymap.set("n", "]d", vim.diagnostic.goto_prev, opts)
+        vim.keymap.set("n", "]d", function()
+          vim.diagnostic.jump({ count = -1, float = true })
+        end, opts)
 
         opts.desc = "Restart LSP"
         vim.keymap.set("n", "<leader>rs", ":LspRestart<CR>", opts)
@@ -59,15 +67,9 @@ return {
 
     vim.diagnostic.config({
       signs = false,
-    })
-
-    -- Settings borders for both hover and signature_help
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      border = "rounded",
-    })
-
-    vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-      border = "rounded",
+      float = {
+        border = "rounded",
+      },
     })
 
     lspconfig.pyright.setup({

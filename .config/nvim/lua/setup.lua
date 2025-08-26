@@ -38,10 +38,8 @@ local opts = {
       },
     },
   },
-  profiling = {
-    -- Uncomment the following line to enable profiling
-    -- loader = true,
-    -- require = true,
+  ui = {
+    border = "rounded",
   },
 }
 
