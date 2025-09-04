@@ -42,7 +42,6 @@ alias ae="source .venv/bin/activate"
 alias pipcs="pip-compile --no-annotate && pip-sync"
 alias djrun="python manage.py runserver"
 alias djmk="python manage.py makemigrations && echo '--- Migrations made ---' && python manage.py migrate"
-alias ai="source ~/aider/venv/bin/activate"
 alias lg="lazygit"
 alias lk="lazydocker"
 
