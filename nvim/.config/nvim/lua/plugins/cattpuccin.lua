@@ -11,6 +11,7 @@ return {
         solid = false,
       },
       auto_integrations = true,
+      no_italic = true,
     })
 
     vim.cmd.colorscheme("catppuccin")
