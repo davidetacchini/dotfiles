@@ -4,6 +4,7 @@ brew "openssl@3"
 brew "automake"
 brew "bash"
 brew "btop"
+brew "cloudflare-wrangler"
 brew "cmake"
 brew "fribidi"
 brew "harfbuzz"
@@ -43,18 +44,20 @@ brew "solr", restart_service: :changed
 brew "sshuttle"
 brew "stow"
 brew "stylua"
-brew "tailscale"
+brew "tailscale", restart_service: :changed
 brew "telnet"
 brew "tmux"
 brew "tree"
+brew "unar"
 brew "uv"
 brew "vim"
 brew "wget"
+brew "zinit"
+brew "zsh"
 brew "oven-sh/bun/bun"
 cask "1password"
 cask "anydesk"
 cask "claude-code"
-cask "cursor"
 cask "cutter"
 cask "cyberduck"
 cask "db-browser-for-sqlite"
@@ -67,6 +70,7 @@ cask "font-roboto-mono-nerd-font"
 cask "ghostty"
 cask "godot"
 cask "google-chrome"
+cask "icon-composer"
 cask "jetbrains-toolbox"
 cask "keyboardcleantool"
 cask "microsoft-auto-update"
@@ -77,15 +81,17 @@ cask "openvpn-connect"
 cask "opera"
 cask "parsec"
 cask "pgadmin4"
-cask "pronotes"
 cask "qgis"
 cask "raspberry-pi-imager"
 cask "rectangle"
 cask "scroll-reverser"
 cask "steam"
+cask "tailscale-app"
 cask "teamviewer"
 cask "visual-studio-code"
 mas "Affinity Designer", id: 824171161
+mas "Bitwarden", id: 1352778147
+mas "Developer", id: 640199958
 mas "Keynote", id: 409183694
 mas "Kindle", id: 302584613
 mas "Microsoft Outlook", id: 985367838
@@ -93,3 +99,4 @@ mas "NordVPN", id: 905953485
 mas "Numbers", id: 409203825
 mas "Pages", id: 409201541
 mas "WhatsApp", id: 310633997
+mas "Xcode", id: 497799835
