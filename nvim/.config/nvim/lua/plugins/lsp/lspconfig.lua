@@ -14,7 +14,6 @@ return {
     },
   },
   config = function()
-    local lspconfig = require("lspconfig")
     local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
     vim.api.nvim_create_autocmd("LspAttach", {
@@ -72,7 +71,7 @@ return {
       },
     })
 
-    lspconfig.pyright.setup({
+    vim.lsp.config.pyright = {
       capabilities = capabilities,
       settings = {
         pyright = {
@@ -87,9 +86,9 @@ return {
           },
         },
       },
-    })
+    }
 
-    lspconfig.lua_ls.setup({
+    vim.lsp.config.lua_ls = {
       capabilities = capabilities,
       settings = {
         Lua = {
@@ -98,9 +97,9 @@ return {
           },
         },
       },
-    })
+    }
 
-    lspconfig.tailwindcss.setup({
+    vim.lsp.config.tailwindcss = {
       capabilities = capabilities,
       filetypes = { "html", "css", "javascript", "typescript", "svelte", "vue" },
       settings = {
@@ -110,6 +109,8 @@ return {
           },
         },
       },
-    })
+    }
+
+    vim.lsp.enable({ "pyright", "lua_ls", "tailwindcss" })
   end,
 }
