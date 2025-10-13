@@ -1,5 +1,6 @@
 theme = Catppuccin Macchiato
 
+macos-titlebar-proxy-icon = hidden
 title = " "
 
 window-height = 10000
@@ -12,10 +13,12 @@ font-size = 16
 font-thicken = true
 
 confirm-close-surface = false
-cursor-style-blink = false
+cursor-style = block
 cursor-color = #848b98
+cursor-style-blink = false
+shell-integration-features = no-cursor
 
-background-opacity = 0.90
+background-opacity = 0.85
 background-blur = true
 keybind = shift+enter=text:\n
 
