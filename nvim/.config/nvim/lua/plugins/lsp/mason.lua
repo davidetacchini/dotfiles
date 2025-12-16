@@ -28,19 +28,21 @@ return {
         "cssls",
         "emmet_language_server",
         "bashls",
-        "ruff",
         "rust_analyzer",
         "tailwindcss",
+        "clangd",
+        -- "ruff", <-- removed because pipx manages it
       },
     })
 
     mason_tool_installer.setup({
       ensure_installed = {
         "pyright",
-        "ruff",
         "stylua",
-        "mypy",
         "prettier",
+        "clang-format",
+        -- "mypy", <-- removed because pipx manages it
+        -- "ruff", <-- removed because pipx manages it
       },
     })
   end,

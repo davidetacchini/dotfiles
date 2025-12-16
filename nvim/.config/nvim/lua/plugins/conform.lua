@@ -20,6 +20,8 @@ return {
         vue = { "prettier" },
         htmldjango = { "djlint" },
         bash = { "shfmt" },
+        c = { "clang-format" },
+        cpp = { "clang-format" },
       },
     })
 
