@@ -6,14 +6,14 @@ export TERM=xterm-256color
 
 # --- vcs_info setup for git branch ---
 autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats ' %F{141}( %b)%f'
+zstyle ':vcs_info:git:*' formats ' %F{158}( %b)%f'
 precmd() {
   vcs_info
 }
 
 # --- Prompt ---
 # %n = user, %m = host, %~ = working dir
-PROMPT='%F{114}%n@%m%f%F{111} %~%f${vcs_info_msg_0_}%F{147} %f '
+PROMPT='%F{153}%n@%m%f%F{224} %~%f${vcs_info_msg_0_} %F{153}❯%f '
 
 # Default editor
 export EDITOR="vim"
@@ -48,7 +48,16 @@ zinit light zsh-users/zsh-autosuggestions
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
 zinit light olivierverdier/zsh-git-prompt
+# Performance tuning for zsh-autocomplete
+zstyle ':autocomplete:*' delay 0.15        # Reduce trigger frequency (default: 0.05)
+zstyle ':autocomplete:*' timeout 3.0       # Allow time for slower completions (default: 1.0)
+zstyle ':autocomplete:*' min-input 2       # Skip single-character triggers
+
+# Re-enable zsh-autocomplete with optimizations
 zinit light marlonrichert/zsh-autocomplete
+
+# Fast native pnpm completion (replaces slow official one)
+zinit light g-plane/pnpm-shell-completion
 
 # I don't like the underline style
 # ZSH_HIGHLIGHT_STYLES[path]='fg=cyan'
@@ -65,9 +74,17 @@ alias lk="lazydocker"
 alias claude="DISABLED_AUTOUPDATER=1 claude"
 
 # The following lines have been added by Docker Desktop to enable Docker CLI completions.
-fpath=($HOME/.docker/completions $fpath)
+# Custom completions (pnpm) + Docker completions
+fpath=($HOME/.zsh/completions $HOME/.docker/completions $fpath)
+
 autoload -Uz compinit
-compinit
+
+# Only rebuild cache once per day (performance optimization)
+if [[ -n ${HOME}/.zcompdump(#qN.mh+24) ]]; then
+  compinit
+else
+  compinit -C  # Use cached version
+fi
 # End of Docker CLI completions
 
 path_add() {
