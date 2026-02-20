@@ -9,7 +9,7 @@ local function generate_random_password(length)
   local chars = {}
   for i = 33, 126 do
     local char = string.char(i)
-    if char ~= "'" and char ~= '"' then
+    if char ~= "'" and char ~= '"' and char ~= "\\" then
       table.insert(chars, char)
     end
   end
