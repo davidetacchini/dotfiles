@@ -3,7 +3,10 @@ return {
   event = { "BufReadPre", "BufNewFile" },
   build = ":TSUpdate",
   dependencies = {
-    "windwp/nvim-ts-autotag",
+    {
+      "windwp/nvim-ts-autotag",
+      opts = {},
+    },
   },
   config = function()
     require("nvim-treesitter.configs").setup({
@@ -26,19 +29,18 @@ return {
         "bash",
         "http",
         "dockerfile",
+        "markdown",
+        "markdown_inline",
         "vimdoc",
         -- "gdscript",
         -- "gdresource",
       },
-      sync_install = true,
+      sync_install = false,
       auto_install = true,
       ignore_install = {},
       highlight = {
         enable = true,
         additional_vim_regex_highlighting = false,
-      },
-      autotag = {
-        enable = true,
       },
     })
   end,

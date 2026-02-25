@@ -1,11 +1,5 @@
-local seeded = false
-
 local function generate_random_password(length)
   length = length or 50
-  if not seeded then
-    math.randomseed(os.time() + vim.loop.hrtime())
-    seeded = true
-  end
   local chars = {}
   for i = 33, 126 do
     local char = string.char(i)
@@ -14,16 +8,20 @@ local function generate_random_password(length)
     end
   end
 
+  local fd = assert(vim.uv.fs_open("/dev/urandom", "r", 438))
+  local bytes = assert(vim.uv.fs_read(fd, length, 0))
+  vim.uv.fs_close(fd)
+
   local password = {}
-  for _ = 1, length do
-    local random_index = math.random(#chars)
-    table.insert(password, chars[random_index])
+  for i = 1, length do
+    local idx = (string.byte(bytes, i) % #chars) + 1
+    table.insert(password, chars[idx])
   end
 
   local final_password = table.concat(password, "")
   vim.fn.setreg("+", final_password)
   vim.fn.setreg("*", final_password)
-  print("Generated password (copied to clipboard): " .. final_password)
+  vim.notify("Password copied to clipboard", vim.log.levels.INFO)
 end
 
 -- Create neovim command

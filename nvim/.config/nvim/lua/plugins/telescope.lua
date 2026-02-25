@@ -45,8 +45,6 @@ return {
     },
     { "<leader>fc", "<cmd>Telescope grep_string<cr>", desc = "Search string under cursor" },
     { "<leader>fp", "<cmd>Telescope pickers<cr>", desc = "Show all cached telescope pickers" },
-    { "<leader>xx", "<cmd>Telescope diagnostics<cr>", desc = "Diagnostics (Telescope)" },
-    { "<leader>xX", "<cmd>Telescope diagnostics bufnr=0<cr>", desc = "Buffer Diagnostics (Telescope)" },
   },
   dependencies = {
     "nvim-lua/plenary.nvim",

@@ -1,5 +1,3 @@
-vim.g.mapleader = " "
-
 -- Move up/down the selection
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -15,8 +13,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("x", "<leader>p", [["_dP]], { desc = "Keep a buffer of the yanked selection" })
 
 -- Window management
-vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vetically" })
-vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horinzontally" })
+vim.keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" })
+vim.keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" })
 vim.keymap.set("n", "<leader>se", "<C-w>=", { desc = "Restore splits to initial size" })
 vim.keymap.set("n", "<leader>sx", "<cmd>close<CR>", { desc = "Close current split" })
 

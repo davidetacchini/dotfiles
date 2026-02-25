@@ -49,14 +49,14 @@ return {
         opts.desc = "See available code actions"
         vim.keymap.set({ "n", "v" }, "<leader>ca", vim.lsp.buf.code_action, opts)
 
-        opts.desc = "Go to next diagnostic"
+        opts.desc = "Go to previous diagnostic"
         vim.keymap.set("n", "[d", function()
-          vim.diagnostic.jump({ count = 1, float = true })
+          vim.diagnostic.jump({ count = -1, float = true })
         end, opts)
 
-        opts.desc = "Go to previous diagnostic"
+        opts.desc = "Go to next diagnostic"
         vim.keymap.set("n", "]d", function()
-          vim.diagnostic.jump({ count = -1, float = true })
+          vim.diagnostic.jump({ count = 1, float = true })
         end, opts)
 
         opts.desc = "Restart LSP"
@@ -111,6 +111,25 @@ return {
       },
     }
 
-    vim.lsp.enable({ "pyright", "lua_ls", "tailwindcss" })
+    vim.lsp.config.ts_ls = { capabilities = capabilities }
+    vim.lsp.config.html = { capabilities = capabilities }
+    vim.lsp.config.cssls = { capabilities = capabilities }
+    vim.lsp.config.emmet_language_server = { capabilities = capabilities }
+    vim.lsp.config.bashls = { capabilities = capabilities }
+    vim.lsp.config.rust_analyzer = { capabilities = capabilities }
+    vim.lsp.config.clangd = { capabilities = capabilities }
+
+    vim.lsp.enable({
+      "pyright",
+      "lua_ls",
+      "tailwindcss",
+      "ts_ls",
+      "html",
+      "cssls",
+      "emmet_language_server",
+      "bashls",
+      "rust_analyzer",
+      "clangd",
+    })
   end,
 }

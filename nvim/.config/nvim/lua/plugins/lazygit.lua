@@ -10,7 +10,4 @@ return {
   keys = {
     { "<leader>lg", "<cmd>LazyGit<cr>", desc = "Open lazy git" },
   },
-  ui = {
-    border = "rounded",
-  },
 }

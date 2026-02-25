@@ -21,7 +21,9 @@ return {
     })
 
     mason_lspconfig.setup({
+      automatic_enable = false,
       ensure_installed = {
+        "pyright",
         "lua_ls",
         "ts_ls",
         "html",
@@ -37,10 +39,11 @@ return {
 
     mason_tool_installer.setup({
       ensure_installed = {
-        "pyright",
         "stylua",
         "prettier",
         "clang-format",
+        "djlint",
+        "shfmt",
         -- "mypy", <-- removed because pipx manages it
         -- "ruff", <-- removed because pipx manages it
       },
