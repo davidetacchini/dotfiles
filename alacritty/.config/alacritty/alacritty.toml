@@ -1,9 +1,5 @@
 [general]
-import = ["~/.config/alacritty/themes/onedark.toml"]
-
-[env]
-# Workaround to delude tmux
-TERM = "screen-256color"
+import = ["~/.config/alacritty/themes/catppuccin-macchiato.toml"]
 
 [window]
 startup_mode = "Maximized"
