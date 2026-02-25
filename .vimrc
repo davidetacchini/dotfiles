@@ -17,6 +17,6 @@ nnoremap <C-d> <C-d>zz
 nnoremap <C-u> <C-u>zz
 nnoremap J mzJ`z
 
-highligh Comment ctermfg=green
+highlight Comment ctermfg=green
 autocmd FileType vue,html,yaml,json,css,scss,sass setlocal ts=2 sw=2
 
