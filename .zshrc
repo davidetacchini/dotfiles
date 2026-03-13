@@ -1,4 +1,5 @@
 # --- Appearance / Environment ---
+export XDG_CONFIG_HOME="$HOME/.config"
 export CLICOLOR=1
 export LANG="en_US.UTF-8"
 export TERMINFO_DIRS="${TERMINFO_DIRS:+$TERMINFO_DIRS:}$HOME/.local/share/terminfo"
