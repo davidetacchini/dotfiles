@@ -15,7 +15,7 @@ confirm-close-surface = false
 cursor-style = block
 cursor-color = #f4dbd6
 cursor-style-blink = false
-shell-integration-features = no-cursor,title
+shell-integration-features = no-cursor,title,ssh-env
 
 background-opacity = 0.85
 background-blur = true
