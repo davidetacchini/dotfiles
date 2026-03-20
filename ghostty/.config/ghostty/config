@@ -2,8 +2,7 @@ theme = Catppuccin Macchiato
 
 macos-titlebar-proxy-icon = hidden
 
-window-height = 10000
-window-width  = 10000
+maximize = true
 
 window-padding-x = 5
 
@@ -19,6 +18,4 @@ shell-integration-features = no-cursor,title,ssh-env
 
 background-opacity = 0.85
 background-blur = true
-keybind = shift+enter=text:\n
-
 clipboard-paste-protection = false
