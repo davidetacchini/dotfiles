@@ -6,32 +6,36 @@ export TERMINFO_DIRS="${TERMINFO_DIRS:+$TERMINFO_DIRS:}$HOME/.local/share/termin
 
 # --- vcs_info setup for git branch ---
 autoload -Uz vcs_info add-zsh-hook
-zstyle ':vcs_info:git:*' formats ' %F{158}( %b)%f'
+zstyle ':vcs_info:git:*' formats ' %F{158}( %b)%f'
 add-zsh-hook precmd vcs_info
 
 # --- Prompt ---
 setopt PROMPT_SUBST
-# %n = user, %m = host, %~ = working dir
 PROMPT='%F{153}%n@%m%f%F{224} %~%f${vcs_info_msg_0_} %F{153}❯%f '
 
 # Default editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Compiler
 export CC="/usr/bin/clang"
 
-# Homebrew
+# Homebrew (inlined from: /opt/homebrew/bin/brew shellenv)
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_BUNDLE_FILE="$HOME/brew/Brewfile"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+fpath[1,0]="/opt/homebrew/share/zsh/site-functions"
 
 # Paths
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && source "/opt/homebrew/opt/nvm/nvm.sh"
+# fnm (Fast Node Manager)
+eval "$(fnm env --use-on-cd --resolve-engines --log-level quiet --shell zsh)"
 
 # Custom completions (pnpm, Docker) -- must be set before zinit/zsh-autocomplete calls compinit
 fpath=($HOME/.zsh/completions $HOME/.docker/completions $fpath)
@@ -40,19 +44,21 @@ fpath=($HOME/.zsh/completions $HOME/.docker/completions $fpath)
 if [[ -f /opt/homebrew/opt/zinit/zinit.zsh ]]; then
   source /opt/homebrew/opt/zinit/zinit.zsh
 
-  zinit light zsh-users/zsh-autosuggestions
-  zinit light zsh-users/zsh-syntax-highlighting
-  zinit light zsh-users/zsh-completions
-
+  # zsh-autocomplete must load eagerly (incompatible with turbo mode)
   zstyle ':autocomplete:*' delay 0.15
   zstyle ':autocomplete:*' timeout 3.0
   zstyle ':autocomplete:*' min-input 2
   zinit light marlonrichert/zsh-autocomplete
 
-  zinit light g-plane/pnpm-shell-completion
+  # Turbo-loaded plugins (deferred after first prompt)
+  zinit wait lucid for \
+    zsh-users/zsh-autosuggestions \
+    zsh-users/zsh-completions \
+    g-plane/pnpm-shell-completion \
+    atinit"zicompinit; zicdreplay" \
+    atload'[[ -f ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh ]] && source ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh; eval "$(fnm completions --shell zsh)"' \
+      zsh-users/zsh-syntax-highlighting
 fi
-
-[[ -f ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh ]] && source ~/.zsh/catppuccin_macchiato-zsh-syntax-highlighting.zsh
 
 # --- Aliases ---
 alias vi="nvim"
@@ -66,7 +72,7 @@ alias claude="DISABLED_AUTOUPDATER=1 claude"
 
 path_add() {
   case ":$PATH:" in
-    *":$1:"*) ;;  # already there
+    *":$1:"*) ;;
     *) PATH="$1:$PATH";;
   esac
 }

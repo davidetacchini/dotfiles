@@ -5,26 +5,30 @@ export LANG="en_US.UTF-8"
 export TERMINFO_DIRS="${TERMINFO_DIRS:+$TERMINFO_DIRS:}$HOME/.local/share/terminfo"
 
 # Prompt appearance
-export PS1="\[\e[32m\]\u@\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]$ \[$(tput sgr0)\]"
+export PS1="\[\e[32m\]\u@\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]$ \[\e[0m\]"
 
 # Default editor
-export EDITOR="vim"
+export EDITOR="nvim"
 
 # Compiler
 export CC="/usr/bin/clang"
 
-# Homebrew-related configuration
+# Homebrew (inlined from: /opt/homebrew/bin/brew shellenv)
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_BUNDLE_FILE="$HOME/brew/Brewfile"
-eval "$(/opt/homebrew/bin/brew shellenv)"
+export HOMEBREW_PREFIX="/opt/homebrew"
+export HOMEBREW_CELLAR="/opt/homebrew/Cellar"
+export HOMEBREW_REPOSITORY="/opt/homebrew"
+export PATH="/opt/homebrew/bin:/opt/homebrew/sbin${PATH+:$PATH}"
+[ -z "${MANPATH-}" ] || export MANPATH=":${MANPATH#:}"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
 
-# Add Homebrew paths
+# Paths
 export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
 export PATH="/opt/homebrew/opt/postgresql@17/bin:$PATH"
 
-# Node Version Manager
-export NVM_DIR="$HOME/.nvm"
-[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"
+# fnm (Fast Node Manager)
+eval "$(fnm env --use-on-cd --resolve-engines --log-level quiet --shell bash)"
 
 # Aliases
 alias vi="nvim"
