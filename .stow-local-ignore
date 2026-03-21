@@ -24,7 +24,6 @@ _darcs
 # Custom ignores
 .claude
 .mcp.json
-.serena
 
 .DS_Store
 .stow-local-ignore
