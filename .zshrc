@@ -69,6 +69,7 @@ alias djmk="python manage.py makemigrations && echo '--- Migrations made ---' &&
 alias lg="lazygit"
 alias lk="lazydocker"
 alias claude="DISABLED_AUTOUPDATER=1 claude"
+alias cl="claude --dangerously-skip-permissions"
 
 path_add() {
   case ":$PATH:" in
