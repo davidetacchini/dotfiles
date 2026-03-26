@@ -6,7 +6,7 @@ export TERMINFO_DIRS="${TERMINFO_DIRS:+$TERMINFO_DIRS:}$HOME/.local/share/termin
 
 # --- vcs_info setup for git branch ---
 autoload -Uz vcs_info add-zsh-hook
-zstyle ':vcs_info:git:*' formats ' %F{158}( %b)%f'
+zstyle ':vcs_info:git:*' formats ' %F{158}( %b)%f'
 add-zsh-hook precmd vcs_info
 
 # --- Prompt ---
