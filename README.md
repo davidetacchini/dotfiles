@@ -22,7 +22,7 @@ sudo apt install git stow
 This must be cloned in the $HOME directory
 
 ```sh
-git clone git@github.com:davidetacchini/dotfiles.git
+git clone git@github.com:xsmyile/dotfiles.git
 ```
 
 #### 3. STOW!
