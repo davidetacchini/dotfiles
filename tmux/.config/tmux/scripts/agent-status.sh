@@ -22,12 +22,6 @@ while IFS=$'\t' read -r pane_id pane_cmd; do
     fi
 done < <(tmux list-panes -a -F "#{pane_id}	#{pane_current_command}" 2>/dev/null)
 
-[ "$open" -eq 0 ] && exit 0
-
 TXT="#[fg=${fg},bg=${surface}]"
 
-if [ "$working" -gt 0 ]; then
-    echo "#[fg=${green}]●${TXT} ${working} #[fg=${yellow}]●${TXT} ${open}"
-else
-    echo "#[fg=${yellow}]●${TXT} ${open}"
-fi
+echo "#[fg=${green}]●${TXT} ${working} #[fg=${yellow}]●${TXT} ${open}"
