@@ -11,7 +11,7 @@ add-zsh-hook precmd vcs_info
 
 # --- Prompt ---
 setopt PROMPT_SUBST
-PROMPT='%F{153}%n@%m%f%F{224} %~%f${vcs_info_msg_0_} %F{153}❯%f '
+PROMPT='%F{153}smyile@blackbird%f%F{224} %~%f${vcs_info_msg_0_} %F{153}❯%f '
 
 # Default editor
 export EDITOR="nvim"

@@ -5,7 +5,7 @@ export LANG="en_US.UTF-8"
 export TERMINFO_DIRS="${TERMINFO_DIRS:+$TERMINFO_DIRS:}$HOME/.local/share/terminfo"
 
 # Prompt appearance
-export PS1="\[\e[32m\]\u@\h\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]$ \[\e[0m\]"
+export PS1="\[\e[32m\]smyile@blackbird\[\e[0m\]:\[\e[0;34m\]\w\[\e[0m\]$ "
 
 # Default editor
 export EDITOR="nvim"
