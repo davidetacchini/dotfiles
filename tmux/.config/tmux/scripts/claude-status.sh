@@ -22,8 +22,6 @@ while IFS=$'\t' read -r pane_id pane_cmd; do
     fi
 done < <(tmux list-panes -a -F "#{pane_id}	#{pane_current_command}" 2>/dev/null)
 
-[ "$total" -eq 0 ] && exit 0
-
 idle=$((total - working))
 
 TXT="#[fg=${fg},bg=${surface}]"
