@@ -50,7 +50,6 @@ brew "python-setuptools"
 brew "redis", restart_service: :changed
 brew "ripgrep"
 brew "rust"
-brew "solr"
 brew "sshuttle"
 brew "stow"
 brew "stripe-cli"
