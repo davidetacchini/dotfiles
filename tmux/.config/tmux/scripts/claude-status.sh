@@ -2,6 +2,9 @@
 
 set -euo pipefail
 
+PLUGIN_DIR="$HOME/.config/tmux/plugins/tmux-claude-status"
+source "$PLUGIN_DIR/scripts/helpers.sh"
+
 STATUS_DIR="$HOME/.cache/tmux-claude-status"
 
 fg=$(tmux show -gqv @thm_fg)
@@ -14,20 +17,21 @@ total=0
 working=0
 waiting=0
 
-while IFS=$'\t' read -r pane_id pane_cmd; do
-    [[ "$pane_cmd" == "claude" ]] || continue
-    ((total++)) || true
+claude_panes=$(get_claude_panes)
 
+while read -r pane_id; do
+    [ -n "$pane_id" ] || continue
     status_file="$STATUS_DIR/${pane_id}.status"
-    if [ -f "$status_file" ]; then
-        pane_status=$(cat "$status_file" 2>/dev/null)
-        if [[ "$pane_status" == "working" ]]; then
-            ((working++)) || true
-        elif [[ "$pane_status" == "waiting" ]]; then
-            ((waiting++)) || true
-        fi
+    [ -f "$status_file" ] || continue
+
+    ((total++)) || true
+    pane_status=$(cat "$status_file" 2>/dev/null)
+    if [[ "$pane_status" == "working" ]]; then
+        ((working++)) || true
+    elif [[ "$pane_status" == "waiting" ]]; then
+        ((waiting++)) || true
     fi
-done < <(tmux list-panes -a -F "#{pane_id}	#{pane_current_command}" 2>/dev/null)
+done <<< "$claude_panes"
 
 idle=$((total - working - waiting))
 
