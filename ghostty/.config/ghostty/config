@@ -1,6 +1,7 @@
 theme = Catppuccin Macchiato
 
 macos-titlebar-proxy-icon = hidden
+macos-icon = blueprint
 
 maximize = true
 
