@@ -21,9 +21,6 @@ local opts = {
     notify = false,
   },
   performance = {
-    cache = {
-      enabled = true,
-    },
     reset_packpath = true, -- Reset the package path to improve startup time
     rtp = {
       reset = true, -- Reset the runtime path to improve startup time

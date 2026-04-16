@@ -1,6 +1,6 @@
 return {
   "OXY2DEV/markview.nvim",
-  lazy = false,
+  ft = "markdown",
   config = function()
     require("markview").setup({})
     vim.keymap.set("n", "<leader>md", "<cmd>Markview Toggle<CR>", { desc = "Toggle markdown rendering" })

@@ -18,13 +18,11 @@ return {
       window = {
         completion = {
           border = "rounded",
-          winhighlight = "Normal:MyHighlight",
-          winblend = 0,
+          winhighlight = "Normal:NormalFloat",
         },
         documentation = {
           border = "rounded",
-          winhighlight = "Normal:MyHighlight",
-          winblend = 0,
+          winhighlight = "Normal:NormalFloat",
         },
       },
       snippet = {
