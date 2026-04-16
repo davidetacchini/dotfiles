@@ -27,7 +27,7 @@ end
 
 -- set different indentation for specified file types
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "html,css,scss,javascript,typescript,javascriptreact,typescriptreact,htmldjango,lua,json,yaml",
+  pattern = "html,css,scss,javascript,typescript,javascriptreact,typescriptreact,vue,htmldjango,lua,json,yaml",
   callback = function()
     vim.opt_local.softtabstop = 2
     vim.opt_local.tabstop = 2

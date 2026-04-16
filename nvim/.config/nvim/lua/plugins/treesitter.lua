@@ -56,6 +56,7 @@ return {
   },
   {
     "windwp/nvim-ts-autotag",
+    ft = { "html", "htmldjango", "javascript", "javascriptreact", "typescript", "typescriptreact", "vue", "xml", "markdown" },
     opts = {},
   },
 }
