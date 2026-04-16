@@ -7,8 +7,14 @@ CLAUDE.md
 
 # Neovim plugin lock file (managed by Lazy.nvim)
 lazy-lock.json
+nvim.log
 
 brew/Brewfile.lock.json
 
 tmux/.config/tmux/tpm/
 tmux/.config/tmux/plugins/
+
+opencode/.config/opencode/node_modules/
+opencode/.config/opencode/bun.lock
+opencode/.config/opencode/.gitignore
+opencode/.config/opencode/package.json
