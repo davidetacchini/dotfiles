@@ -22,7 +22,6 @@ _darcs
 ^/COPYING
 
 # Custom ignores
-.claude
 .mcp.json
 
 .DS_Store
