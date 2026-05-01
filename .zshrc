@@ -82,3 +82,4 @@ path_add "$HOME/.local/bin"
 
 # pipx binaries
 path_add "$HOME/.local/pipx/bin"
+. "$HOME/export-esp.sh"

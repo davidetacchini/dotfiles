@@ -49,3 +49,4 @@ alias claude="DISABLED_AUTOUPDATER=1 claude"
 
 # pipx binaries
 [[ ":$PATH:" != *":$HOME/.local/pipx/bin:"* ]] && export PATH="$HOME/.local/pipx/bin:$PATH"
+. "$HOME/.cargo/env"
